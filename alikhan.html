@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alikhan - Backend Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">← Portfolio Hub</a>
+                <ul class="nav-menu">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="highlight">Alikhan</span>
+                </h1>
+                <p class="hero-subtitle">Backend Developer</p>
+                <p class="hero-description">
+                    Computer Science student specializing in server-side development and database design. 
+                    Passionate about building robust, scalable backend systems and optimizing performance.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/alikhan" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://t.me/alikhan" target="_blank" aria-label="Telegram">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://instagram.com/alikhan" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a Computer Science student with a deep interest in backend development and 
+                        system architecture. I enjoy working on the "behind-the-scenes" aspects of 
+                        applications, ensuring they run smoothly, securely, and efficiently.
+                    </p>
+                    <p>
+                        My focus areas include API development, database optimization, and implementing 
+                        secure authentication systems. I'm constantly learning about new technologies 
+                        and best practices to build better backend solutions.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">12+</span>
+                            <span class="stat-label">APIs Built</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4+</span>
+                            <span class="stat-label">Databases Managed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Backend systems I've developed</p>
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-item" data-id="1">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <i class="fas fa-database"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>REST API Service</h3>
+                        <p>Python + Django</p>
+                        <span class="view-case">View Details →</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="portfolio-item" data-id="2">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Authentication System</h3>
+                        <p>JWT + OAuth2</p>
+                        <span class="view-case">View Details →</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="portfolio-item" data-id="3">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Cloud Storage API</h3>
+                        <p>Node.js + AWS S3</p>
+                        <span class="view-case">View Details →</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="portfolio-item" data-id="4">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <i class="fas fa-server"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Microservices Architecture</h3>
+                        <p>Docker + Kubernetes</p>
+                        <span class="view-case">View Details →</span>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="portfolio-item" data-id="5">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Search Engine Backend</h3>
+                        <p>Elasticsearch + Python</p>
+                        <span class="view-case">View Details →</span>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="portfolio-item" data-id="6">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Automation Scripts</h3>
+                        <p>Python + Bash</p>
+                        <span class="view-case">View Details →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>JavaScript/Node.js</li>
+                        <li>Java</li>
+                        <li>SQL</li>
+                        <li>Bash/Shell</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks</h3>
+                    <ul class="skill-list">
+                        <li>Django & Flask</li>
+                        <li>Express.js</li>
+                        <li>FastAPI</li>
+                        <li>Spring Boot</li>
+                        <li>GraphQL</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <ul class="skill-list">
+                        <li>PostgreSQL</li>
+                        <li>MongoDB</li>
+                        <li>Redis</li>
+                        <li>MySQL</li>
+                        <li>Elasticsearch</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>DevOps & Tools</h3>
+                    <ul class="skill-list">
+                        <li>Docker</li>
+                        <li>Git & GitHub</li>
+                        <li>AWS/Cloud</li>
+                        <li>Linux</li>
+                        <li>CI/CD Pipelines</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience & Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Computer Science Student</h3>
+                        <p class="timeline-company">AITU</p>
+                        <p class="timeline-date">2022 - Present</p>
+                        <p class="timeline-description">
+                            Studying Computer Science with emphasis on algorithms, data structures, 
+                            and software engineering. Participating in coding competitions and 
+                            backend development projects.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Backend Developer Intern</h3>
+                        <p class="timeline-company">Tech Startup</p>
+                        <p class="timeline-date">Summer 2024</p>
+                        <p class="timeline-description">
+                            Worked on developing and optimizing REST APIs, implementing caching 
+                            strategies, and improving database query performance. Gained experience 
+                            with production-level backend systems.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Backend Development Courses</h3>
+                        <p class="timeline-company">Online Learning Platforms</p>
+                        <p class="timeline-date">2021 - 2022</p>
+                        <p class="timeline-description">
+                            Completed comprehensive courses in backend development, including 
+                            database design, API architecture, and cloud deployment. Built 
+                            strong foundation in server-side programming.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Interested in working together?</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:alikhan@example.com">alikhan@example.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Almaty, Kazakhstan</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-telegram"></i>
+                        <div>
+                            <h4>Telegram</h4>
+                            <a href="https://t.me/alikhan" target="_blank">@alikhan</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h4>GitHub</h4>
+                            <a href="https://github.com/alikhan" target="_blank">@alikhan</a>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Alikhan. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/alikhan" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://t.me/alikhan" target="_blank"><i class="fab fa-telegram"></i></a>
+                    <a href="https://instagram.com/alikhan" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

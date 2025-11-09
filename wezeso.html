@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wezeso - UI/UX & Branding Designer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">← Portfolio Hub</a>
+                <ul class="nav-menu">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Hi, I'm <span class="highlight">Wezeso</span>
+                </h1>
+                <p class="hero-subtitle">UI/UX & Branding Designer</p>
+                <p class="hero-description">
+                    I create meaningful digital experiences and memorable brand identities 
+                    that help businesses stand out and connect with their audience.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://t.me/wezeso" target="_blank" aria-label="Telegram">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://instagram.com/wezeso" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://github.com/wezeso" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a passionate UI/UX and Branding Designer with a keen eye for detail 
+                        and a love for creating intuitive, user-centered designs. My approach 
+                        combines strategic thinking with creative execution to deliver solutions 
+                        that not only look great but also solve real problems.
+                    </p>
+                    <p>
+                        With expertise in user research, interface design, and brand strategy, 
+                        I help businesses craft digital experiences that resonate with their 
+                        target audience and drive meaningful results.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">30+</span>
+                            <span class="stat-label">Happy Clients</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Featured Work</h2>
+            <p class="section-subtitle">A selection of my recent projects</p>
+            <div class="portfolio-grid">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item" data-id="1">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Modern E-commerce Platform</h3>
+                        <p>UI/UX Design</p>
+                        <span class="view-case">View Case Study →</span>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item" data-id="2">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Tech Startup Branding</h3>
+                        <p>Brand Identity</p>
+                        <span class="view-case">View Case Study →</span>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item" data-id="3">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Fitness Tracking App</h3>
+                        <p>Mobile UI/UX</p>
+                        <span class="view-case">View Case Study →</span>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 4 -->
+                <div class="portfolio-item" data-id="4">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Restaurant Rebranding</h3>
+                        <p>Brand Strategy</p>
+                        <span class="view-case">View Case Study →</span>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 5 -->
+                <div class="portfolio-item" data-id="5">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Financial Dashboard</h3>
+                        <p>Web Application</p>
+                        <span class="view-case">View Case Study →</span>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 6 -->
+                <div class="portfolio-item" data-id="6">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Coffee Shop Brand</h3>
+                        <p>Visual Identity</p>
+                        <span class="view-case">View Case Study →</span>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 7 -->
+                <div class="portfolio-item" data-id="7">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Educational Platform</h3>
+                        <p>UX/UI Design</p>
+                        <span class="view-case">View Case Study →</span>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 8 -->
+                <div class="portfolio-item" data-id="8">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Fashion Brand Identity</h3>
+                        <p>Branding</p>
+                        <span class="view-case">View Case Study →</span>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 9 -->
+                <div class="portfolio-item" data-id="9">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Healthcare App Redesign</h3>
+                        <p>Mobile UX</p>
+                        <span class="view-case">View Case Study →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Modal -->
+    <div class="modal" id="portfolioModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body" id="modalBody">
+                <!-- Content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>UI/UX Design</h3>
+                    <ul class="skill-list">
+                        <li>User Research & Testing</li>
+                        <li>Wireframing & Prototyping</li>
+                        <li>Interface Design</li>
+                        <li>Interaction Design</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Branding</h3>
+                    <ul class="skill-list">
+                        <li>Brand Strategy</li>
+                        <li>Logo Design</li>
+                        <li>Visual Identity</li>
+                        <li>Brand Guidelines</li>
+                        <li>Marketing Materials</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools</h3>
+                    <ul class="skill-list">
+                        <li>Figma</li>
+                        <li>Adobe XD</li>
+                        <li>Adobe Illustrator</li>
+                        <li>Adobe Photoshop</li>
+                        <li>Sketch</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Other Skills</h3>
+                    <ul class="skill-list">
+                        <li>Design Systems</li>
+                        <li>Typography</li>
+                        <li>Color Theory</li>
+                        <li>Project Management</li>
+                        <li>Client Communication</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Senior UI/UX Designer</h3>
+                        <p class="timeline-company">Creative Agency</p>
+                        <p class="timeline-date">2023 - Present</p>
+                        <p class="timeline-description">
+                            Leading design projects for high-profile clients, managing a team of designers, 
+                            and establishing design systems and processes.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>UI/UX & Brand Designer</h3>
+                        <p class="timeline-company">Digital Studio</p>
+                        <p class="timeline-date">2022 - 2023</p>
+                        <p class="timeline-description">
+                            Designed user interfaces and brand identities for startups and established businesses, 
+                            conducting user research and creating design solutions.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Junior Graphic Designer</h3>
+                        <p class="timeline-company">Marketing Agency</p>
+                        <p class="timeline-date">2021 - 2022</p>
+                        <p class="timeline-description">
+                            Worked on various branding and marketing projects, developing skills in 
+                            visual design and brand communication.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's work together on your next project</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:wezeso@example.com">wezeso@example.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Almaty, Kazakhstan</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-telegram"></i>
+                        <div>
+                            <h4>Telegram</h4>
+                            <a href="https://t.me/wezeso" target="_blank">@wezeso</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <div>
+                            <h4>Instagram</h4>
+                            <a href="https://instagram.com/wezeso" target="_blank">@wezeso</a>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Wezeso. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="https://t.me/wezeso" target="_blank"><i class="fab fa-telegram"></i></a>
+                    <a href="https://instagram.com/wezeso" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/wezeso" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Hub - Team Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-folder-open"></i> Portfolio Hub
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hub-hero">
+        <div class="container">
+            <!-- Geometric Background Elements -->
+            <div class="geometric-bg">
+                <div class="geo-shape square"></div>
+                <div class="geo-shape square"></div>
+                <div class="geo-shape square"></div>
+                <div class="geo-shape circle"></div>
+                <div class="geo-shape circle"></div>
+                <div class="geo-shape circle"></div>
+                <div class="geo-shape square small"></div>
+                <div class="geo-shape square small"></div>
+                <div class="geo-shape circle small"></div>
+                <div class="geo-shape square small"></div>
+            </div>
+            
+            <div class="hub-header">
+                <!-- Creative Portfolio Title -->
+                <div class="creative-title">
+                    <h1 class="portfolio-text">
+                        <span class="word-port">Port</span><span class="word-folio">folio</span>
+                    </h1>
+                    <div class="title-shapes">
+                        <span class="shape-star">✦</span>
+                        <span class="shape-box">□</span>
+                        <span class="shape-gear">⚙</span>
+                    </div>
+                    <div class="cursor-pointer">
+                        <i class="fas fa-mouse-pointer"></i>
+                    </div>
+                </div>
+                
+                <div class="hero-meta">
+                    <span class="meta-label">Team Showcase</span>
+                    <span class="meta-divider">•</span>
+                    <span class="meta-year">2024</span>
+                </div>
+                
+                <p class="hub-description">
+                    A collection of portfolios showcasing our team's work in design and development.
+                    Explore individual projects and skills from our talented team members.
+                </p>
+                
+                <div class="hub-stats">
+                    <div class="hub-stat">
+                        <i class="fas fa-users"></i>
+                        <span>4 Contributors</span>
+                    </div>
+                    <div class="hub-stat">
+                        <i class="fas fa-code-branch"></i>
+                        <span>Multiple Specialties</span>
+                    </div>
+                    <div class="hub-stat">
+                        <i class="fas fa-star"></i>
+                        <span>CS Students</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="hub-about">
+        <div class="container">
+            <div class="readme-section">
+                <h2><i class="fas fa-book"></i> README.md</h2>
+                <div class="readme-content">
+                    <h3>👋 Welcome to Our Portfolio Hub</h3>
+                    <p>
+                        This repository contains portfolios from our team members, showcasing their unique skills 
+                        in design and development. Each portfolio demonstrates individual expertise and projects.
+                    </p>
+                    
+                    <h3>🎯 What You'll Find</h3>
+                    <ul>
+                        <li><strong>Wezeso</strong> - UI/UX & Branding Designer specializing in user-centered design and visual identity</li>
+                        <li><strong>Sardor</strong> - Full-Stack Developer with expertise in modern web technologies</li>
+                        <li><strong>Alikhan</strong> - Backend Developer focused on scalable server-side solutions</li>
+                        <li><strong>Amirkhan</strong> - Frontend Developer creating responsive and interactive user interfaces</li>
+                    </ul>
+
+                    <h3>🚀 Quick Start</h3>
+                    <p>Click on any team member below to explore their portfolio and projects.</p>
+
+                    <h3>📫 Get In Touch</h3>
+                    <p>
+                        Interested in working with us? Feel free to reach out to any team member through their 
+                        individual portfolio pages.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="hub-team">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-user-friends"></i> Team Members
+            </h2>
+
+            <div class="repo-list">
+                <!-- Wezeso Card -->
+                <div class="repo-card" data-profile="wezeso">
+                    <div class="repo-card-inner">
+                        <div class="repo-left">
+                            <div class="profile-picture" data-initials="W">
+                                <img src="" alt="Wezeso" class="profile-img hidden">
+                            </div>
+                        </div>
+                        <div class="repo-right">
+                            <div class="repo-header">
+                                <h3 class="repo-name">
+                                    <a href="wezeso.html">
+                                        <i class="fas fa-book"></i> Wezeso
+                                    </a>
+                                </h3>
+                                <span class="repo-visibility">Public</span>
+                            </div>
+                            <p class="repo-role">UI/UX & Branding Designer</p>
+                            <p class="repo-description">
+                                Creating meaningful digital experiences and memorable brand identities. 
+                                Specialized in user research, interface design, and brand strategy.
+                            </p>
+                            <div class="repo-meta">
+                                <div class="repo-topics">
+                                    <span class="topic">UI/UX Design</span>
+                                    <span class="topic">Branding</span>
+                                    <span class="topic">Figma</span>
+                                    <span class="topic">Adobe Suite</span>
+                                </div>
+                                <div class="repo-stats">
+                                    <span class="repo-stat"><i class="fas fa-star"></i> 50+ Projects</span>
+                                    <span class="repo-stat"><i class="fas fa-code-branch"></i> Design</span>
+                                </div>
+                            </div>
+                            <div class="repo-footer">
+                                <div class="repo-links">
+                                    <a href="https://github.com/wezeso" target="_blank" aria-label="GitHub" class="social-link">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://t.me/wezeso" target="_blank" aria-label="Telegram" class="social-link">
+                                        <i class="fab fa-telegram"></i>
+                                    </a>
+                                    <a href="https://instagram.com/wezeso" target="_blank" aria-label="Instagram" class="social-link">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                                <a href="wezeso.html" class="btn btn-sm btn-portfolio">
+                                    <i class="fas fa-arrow-right"></i> View Portfolio
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sardor Card -->
+                <div class="repo-card" data-profile="sardor">
+                    <div class="repo-card-inner">
+                        <div class="repo-left">
+                            <div class="profile-picture" data-initials="S">
+                                <img src="" alt="Sardor" class="profile-img hidden">
+                            </div>
+                        </div>
+                        <div class="repo-right">
+                            <div class="repo-header">
+                                <h3 class="repo-name">
+                                    <a href="sardor.html">
+                                        <i class="fas fa-book"></i> Sardor
+                                    </a>
+                                </h3>
+                                <span class="repo-visibility">Public</span>
+                            </div>
+                            <p class="repo-role">Full-Stack Developer</p>
+                            <p class="repo-description">
+                                Building scalable web applications with modern technologies. 
+                                Passionate about clean code, best practices, and creating efficient solutions.
+                            </p>
+                            <div class="repo-meta">
+                                <div class="repo-topics">
+                                    <span class="topic">JavaScript</span>
+                                    <span class="topic">React</span>
+                                    <span class="topic">Node.js</span>
+                                    <span class="topic">Python</span>
+                                </div>
+                                <div class="repo-stats">
+                                    <span class="repo-stat"><i class="fas fa-star"></i> 15+ Projects</span>
+                                    <span class="repo-stat"><i class="fas fa-code-branch"></i> Full-Stack</span>
+                                </div>
+                            </div>
+                            <div class="repo-footer">
+                                <div class="repo-links">
+                                    <a href="https://github.com/sardor" target="_blank" aria-label="GitHub" class="social-link">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://t.me/sardor" target="_blank" aria-label="Telegram" class="social-link">
+                                        <i class="fab fa-telegram"></i>
+                                    </a>
+                                    <a href="https://instagram.com/sardor" target="_blank" aria-label="Instagram" class="social-link">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                                <a href="sardor.html" class="btn btn-sm btn-portfolio">
+                                    <i class="fas fa-arrow-right"></i> View Portfolio
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alikhan Card -->
+                <div class="repo-card" data-profile="alikhan">
+                    <div class="repo-card-inner">
+                        <div class="repo-left">
+                            <div class="profile-picture" data-initials="A">
+                                <img src="" alt="Alikhan" class="profile-img hidden">
+                            </div>
+                        </div>
+                        <div class="repo-right">
+                            <div class="repo-header">
+                                <h3 class="repo-name">
+                                    <a href="alikhan.html">
+                                        <i class="fas fa-book"></i> Alikhan
+                                    </a>
+                                </h3>
+                                <span class="repo-visibility">Public</span>
+                            </div>
+                            <p class="repo-role">Backend Developer</p>
+                            <p class="repo-description">
+                                Designing and implementing robust backend systems and APIs. 
+                                Focused on performance, security, and database optimization.
+                            </p>
+                            <div class="repo-meta">
+                                <div class="repo-topics">
+                                    <span class="topic">Python</span>
+                                    <span class="topic">Django</span>
+                                    <span class="topic">PostgreSQL</span>
+                                    <span class="topic">Docker</span>
+                                </div>
+                                <div class="repo-stats">
+                                    <span class="repo-stat"><i class="fas fa-star"></i> 12+ APIs</span>
+                                    <span class="repo-stat"><i class="fas fa-code-branch"></i> Backend</span>
+                                </div>
+                            </div>
+                            <div class="repo-footer">
+                                <div class="repo-links">
+                                    <a href="https://github.com/alikhan" target="_blank" aria-label="GitHub" class="social-link">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://t.me/alikhan" target="_blank" aria-label="Telegram" class="social-link">
+                                        <i class="fab fa-telegram"></i>
+                                    </a>
+                                    <a href="https://instagram.com/alikhan" target="_blank" aria-label="Instagram" class="social-link">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                                <a href="alikhan.html" class="btn btn-sm btn-portfolio">
+                                    <i class="fas fa-arrow-right"></i> View Portfolio
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Amirkhan Card -->
+                <div class="repo-card" data-profile="amirkhan">
+                    <div class="repo-card-inner">
+                        <div class="repo-left">
+                            <div class="profile-picture" data-initials="A">
+                                <img src="" alt="Amirkhan" class="profile-img hidden">
+                            </div>
+                        </div>
+                        <div class="repo-right">
+                            <div class="repo-header">
+                                <h3 class="repo-name">
+                                    <a href="amirkhan.html">
+                                        <i class="fas fa-book"></i> Amirkhan
+                                    </a>
+                                </h3>
+                                <span class="repo-visibility">Public</span>
+                            </div>
+                            <p class="repo-role">Frontend Developer</p>
+                            <p class="repo-description">
+                                Crafting beautiful and responsive user interfaces with modern frameworks. 
+                                Dedicated to pixel-perfect designs and smooth user experiences.
+                            </p>
+                            <div class="repo-meta">
+                                <div class="repo-topics">
+                                    <span class="topic">React</span>
+                                    <span class="topic">TypeScript</span>
+                                    <span class="topic">CSS/SASS</span>
+                                    <span class="topic">Vue.js</span>
+                                </div>
+                                <div class="repo-stats">
+                                    <span class="repo-stat"><i class="fas fa-star"></i> 20+ Websites</span>
+                                    <span class="repo-stat"><i class="fas fa-code-branch"></i> Frontend</span>
+                                </div>
+                            </div>
+                            <div class="repo-footer">
+                                <div class="repo-links">
+                                    <a href="https://github.com/amirkhan" target="_blank" aria-label="GitHub" class="social-link">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://t.me/amirkhan" target="_blank" aria-label="Telegram" class="social-link">
+                                        <i class="fab fa-telegram"></i>
+                                    </a>
+                                    <a href="https://instagram.com/amirkhan" target="_blank" aria-label="Instagram" class="social-link">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                                <a href="amirkhan.html" class="btn btn-sm btn-portfolio">
+                                    <i class="fas fa-arrow-right"></i> View Portfolio
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Portfolio Hub. All rights reserved.</p>
+                <p class="footer-note">Built with HTML, CSS, and JavaScript</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="hub.js"></script>
+</body>
+</html>
