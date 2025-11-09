@@ -6,9 +6,17 @@ const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
+const fs = require('fs');
 require('dotenv').config();
 
 const { pool } = require('./database/db');
+
+// Ensure uploads directory exists
+const uploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+    fs.mkdirSync(uploadsDir, { recursive: true });
+    console.log('✓ Created uploads directory');
+}
 
 // Initialize app
 const app = express();

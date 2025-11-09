@@ -1,8 +1,16 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
-// PostgreSQL connection pool
-const pool = new Pool({
+// Support both DATABASE_URL (production) and individual params (development)
+const poolConfig = process.env.DATABASE_URL ? {
+    connectionString: process.env.DATABASE_URL,
+    ssl: process.env.NODE_ENV === 'production' ? {
+        rejectUnauthorized: false // Required for most cloud database providers
+    } : false,
+    max: 20,
+    idleTimeoutMillis: 30000,
+    connectionTimeoutMillis: 2000,
+} : {
     host: process.env.DB_HOST || 'localhost',
     port: process.env.DB_PORT || 5432,
     database: process.env.DB_NAME || 'portfolio_hub',
@@ -11,7 +19,10 @@ const pool = new Pool({
     max: 20,
     idleTimeoutMillis: 30000,
     connectionTimeoutMillis: 2000,
-});
+};
+
+// PostgreSQL connection pool
+const pool = new Pool(poolConfig);
 
 // Test database connection
 pool.on('connect', () => {
