@@ -231,3 +231,187 @@ document.querySelectorAll('.profile-picture').forEach((pic, index) => {
         }, 100);
     }, index * 200);
 });
+
+// ==================== SEARCH FUNCTIONALITY ====================
+const searchToggle = document.getElementById('searchToggle');
+const searchPanel = document.getElementById('searchPanel');
+const searchClose = document.getElementById('searchClose');
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+
+// Sample project data (can be loaded from API later)
+let allProjects = [];
+
+// Load projects on page load
+async function loadProjects() {
+    try {
+        // Try to fetch from API
+        const response = await fetch('http://localhost:3000/api/projects');
+        if (response.ok) {
+            allProjects = await response.json();
+        }
+    } catch (error) {
+        // If API not available, use sample data
+        allProjects = [
+            {
+                id: 1,
+                title: "Modern E-commerce Platform",
+                category: "UI/UX Design",
+                description: "A comprehensive redesign of an e-commerce platform focused on improving user experience and conversion rates.",
+                tags: ["UI Design", "UX Research", "Prototyping", "E-commerce", "Figma"],
+                member_name: "Wezeso"
+            },
+            {
+                id: 2,
+                title: "Tech Startup Branding",
+                category: "Brand Identity",
+                description: "Complete brand identity design for an innovative tech startup in the AI space.",
+                tags: ["Branding", "Logo Design", "Visual Identity", "Illustrator", "Brand Strategy"],
+                member_name: "Wezeso"
+            },
+            {
+                id: 3,
+                title: "E-commerce Platform",
+                category: "Full-Stack Web App",
+                description: "Building scalable web applications with modern technologies.",
+                tags: ["JavaScript", "React", "Node.js", "MongoDB"],
+                member_name: "Sardor"
+            },
+            {
+                id: 4,
+                title: "REST API Service",
+                category: "Backend",
+                description: "Designing and implementing robust backend systems and APIs.",
+                tags: ["Python", "Django", "PostgreSQL", "REST API"],
+                member_name: "Alikhan"
+            },
+            {
+                id: 5,
+                title: "Portfolio Website",
+                category: "Frontend",
+                description: "Crafting beautiful and responsive user interfaces with modern frameworks.",
+                tags: ["React", "TypeScript", "CSS", "Tailwind"],
+                member_name: "Amirkhan"
+            }
+        ];
+    }
+}
+
+// Open search panel
+if (searchToggle) {
+    searchToggle.addEventListener('click', () => {
+        searchPanel.classList.add('active');
+        searchInput.focus();
+    });
+}
+
+// Close search panel
+if (searchClose) {
+    searchClose.addEventListener('click', closeSearch);
+}
+
+// Close on overlay click
+if (searchPanel) {
+    searchPanel.addEventListener('click', (e) => {
+        if (e.target === searchPanel) {
+            closeSearch();
+        }
+    });
+}
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && searchPanel.classList.contains('active')) {
+        closeSearch();
+    }
+});
+
+function closeSearch() {
+    searchPanel.classList.remove('active');
+    searchInput.value = '';
+    searchResults.innerHTML = '<p class="search-hint">Start typing to search projects...</p>';
+}
+
+// Search functionality
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.trim().toLowerCase();
+        
+        if (query.length === 0) {
+            searchResults.innerHTML = '<p class="search-hint">Start typing to search projects...</p>';
+            return;
+        }
+        
+        if (query.length < 2) {
+            return;
+        }
+        
+        const results = allProjects.filter(project => {
+            const matchTitle = project.title.toLowerCase().includes(query);
+            const matchCategory = project.category?.toLowerCase().includes(query);
+            const matchDescription = project.description?.toLowerCase().includes(query);
+            const matchTags = project.tags?.some(tag => tag.toLowerCase().includes(query));
+            const matchMember = project.member_name?.toLowerCase().includes(query);
+            
+            return matchTitle || matchCategory || matchDescription || matchTags || matchMember;
+        });
+        
+        displaySearchResults(results, query);
+    });
+}
+
+function displaySearchResults(results, query) {
+    if (results.length === 0) {
+        searchResults.innerHTML = `
+            <div class="search-no-results">
+                <i class="fas fa-search"></i>
+                <p>No projects found for "${query}"</p>
+                <p style="font-size: 0.875rem; margin-top: 0.5rem;">Try searching with different keywords</p>
+            </div>
+        `;
+        return;
+    }
+    
+    searchResults.innerHTML = results.map(project => `
+        <div class="search-result-item" onclick="viewProject(${project.id})">
+            <div class="search-result-title">
+                <i class="fas fa-folder"></i>
+                ${highlightText(project.title, query)}
+            </div>
+            <div class="search-result-meta">
+                ${project.category} ${project.member_name ? `• by ${project.member_name}` : ''}
+            </div>
+            <div class="search-result-description">
+                ${highlightText(project.description || '', query)}
+            </div>
+            ${project.tags && project.tags.length > 0 ? `
+                <div class="search-result-tags">
+                    ${project.tags.slice(0, 4).map(tag => `<span class="search-tag">${tag}</span>`).join('')}
+                </div>
+            ` : ''}
+        </div>
+    `).join('');
+}
+
+function highlightText(text, query) {
+    if (!text) return '';
+    const regex = new RegExp(`(${query})`, 'gi');
+    return text.replace(regex, '<mark style="background-color: var(--accent-primary); color: #fff; padding: 0 0.25rem; border-radius: 2px;">$1</mark>');
+}
+
+function viewProject(projectId) {
+    // Close search
+    closeSearch();
+    
+    // Find the project card and scroll to it
+    const projectCard = document.querySelector(`.portfolio-item[data-id="${projectId}"]`);
+    if (projectCard) {
+        projectCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        projectCard.click();
+    } else {
+        alert('Project details coming soon!');
+    }
+}
+
+// Load projects when page loads
+loadProjects();

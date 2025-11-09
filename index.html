@@ -19,12 +19,43 @@
                     <li><a href="#team">Team</a></li>
                     <li><a href="#about">About</a></li>
                 </ul>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
+                <div class="nav-actions">
+                    <button class="search-toggle" id="searchToggle" aria-label="Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="/login" class="btn-login">Login</a>
+                    <a href="/login" class="btn-signup">Sign Up</a>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
             </div>
         </div>
     </nav>
+
+    <!-- Search Panel -->
+    <div class="search-panel" id="searchPanel">
+        <div class="search-panel-content">
+            <div class="search-header">
+                <h3><i class="fas fa-search"></i> Search Projects</h3>
+                <button class="search-close" id="searchClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search by title, category, or tags..." autocomplete="off">
+            </div>
+            <div class="search-results" id="searchResults">
+                <p class="search-hint">Start typing to search projects...</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hub-hero">
