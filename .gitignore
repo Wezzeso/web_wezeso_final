@@ -1,16 +1,29 @@
-# Operating System Files
+# Dependencies
+node_modules/
+backend/node_modules/
+
+# Environment variables
+.env
+backend/.env
+
+# Uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
 .DS_Store
 Thumbs.db
-desktop.ini
 
-# Editor Files
+# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
-*~
 
-# Temporary Files
-*.tmp
-*.log
-
+# Build files
+dist/
+build/

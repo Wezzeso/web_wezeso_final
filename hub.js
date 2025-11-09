@@ -415,3 +415,88 @@ function viewProject(projectId) {
 
 // Load projects when page loads
 loadProjects();
+
+// ==================== PROFILE PICTURE LOADER ====================
+// Profile picture URLs for each team member
+const profilePictures = {
+    wezeso: "https://sheftour.kz/wp-content/uploads/2025/11/profile-picture.webp",
+    sardor: "https://sheftour.kz/wp-content/uploads/2025/11/sardor-pfp.webp",
+    alikhan: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=faces",
+    amirkhan: "https://sheftour.kz/wp-content/uploads/2025/11/amir-pfp.webp"
+};
+
+// Load profile pictures for index.html (team cards)
+function loadProfilePictures() {
+    document.querySelectorAll('.profile-picture').forEach(pic => {
+        const profile = pic.closest('[data-profile]')?.getAttribute('data-profile');
+        const img = pic.querySelector('.profile-img');
+        
+        if (profile && profilePictures[profile] && img) {
+            // Set image source
+            img.src = profilePictures[profile];
+            img.alt = profile.charAt(0).toUpperCase() + profile.slice(1);
+            
+            // Handle image load
+            img.onload = () => {
+                img.classList.remove('hidden');
+                // Hide the ::before pseudo-element (initials) by adding a class
+                pic.classList.add('has-image');
+                pic.style.backgroundImage = `url(${profilePictures[profile]})`;
+                pic.style.backgroundSize = 'cover';
+                pic.style.backgroundPosition = 'center';
+            };
+            
+            img.onerror = () => {
+                // If image fails, keep the initials visible
+                console.warn(`Failed to load profile picture for ${profile}`);
+            };
+        }
+    });
+}
+
+// Load hero profile pictures for portfolio pages
+function loadHeroProfilePictures() {
+    document.querySelectorAll('.hero-profile-picture').forEach(pic => {
+        const profile = pic.getAttribute('data-profile');
+        const img = pic.querySelector('.hero-profile-img');
+        const initials = pic.querySelector('.profile-initials');
+        
+        if (profile && profilePictures[profile] && img) {
+            // Set image source
+            img.src = profilePictures[profile];
+            img.alt = profile.charAt(0).toUpperCase() + profile.slice(1);
+            
+            // Handle image load
+            img.onload = () => {
+                img.style.display = 'block';
+                img.style.opacity = '0';
+                setTimeout(() => {
+                    img.style.transition = 'opacity 0.5s ease';
+                    img.style.opacity = '1';
+                }, 10);
+                if (initials) {
+                    initials.style.display = 'none';
+                }
+            };
+            
+            img.onerror = () => {
+                // If image fails, keep the initials visible
+                console.warn(`Failed to load profile picture for ${profile}`);
+                if (initials) {
+                    initials.style.display = 'flex';
+                }
+            };
+        }
+    });
+}
+
+// Load profile pictures when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        loadProfilePictures();
+        loadHeroProfilePictures();
+    });
+} else {
+    loadProfilePictures();
+    loadHeroProfilePictures();
+}

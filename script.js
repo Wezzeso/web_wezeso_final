@@ -378,32 +378,24 @@ let allProjects = [];
 
 // Load projects on page load
 async function loadProjects() {
-    try {
-        // Try to fetch from API
-        const response = await fetch('http://localhost:3000/api/projects');
-        if (response.ok) {
-            allProjects = await response.json();
-        }
-    } catch (error) {
-        // If API not available, use portfolio items from the page
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-        allProjects = Array.from(portfolioItems).map((item, index) => {
-            const title = item.querySelector('.portfolio-title')?.textContent || `Project ${index + 1}`;
-            const category = item.querySelector('.portfolio-category')?.textContent || '';
-            const description = item.querySelector('.modal-description')?.textContent || '';
-            const tagsElements = item.querySelectorAll('.tag');
-            const tags = Array.from(tagsElements).map(tag => tag.textContent);
-            
-            return {
-                id: index + 1,
-                title,
-                category,
-                description,
-                tags,
-                element: item
-            };
-        });
-    }
+    // Use portfolio items from the page
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    allProjects = Array.from(portfolioItems).map((item, index) => {
+        const title = item.querySelector('.portfolio-title')?.textContent || `Project ${index + 1}`;
+        const category = item.querySelector('.portfolio-category')?.textContent || '';
+        const description = item.querySelector('.modal-description')?.textContent || '';
+        const tagsElements = item.querySelectorAll('.tag');
+        const tags = Array.from(tagsElements).map(tag => tag.textContent);
+        
+        return {
+            id: index + 1,
+            title,
+            category,
+            description,
+            tags,
+            element: item
+        };
+    });
 }
 
 // Open search panel

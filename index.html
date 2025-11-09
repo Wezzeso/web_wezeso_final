@@ -26,8 +26,9 @@
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                         <i class="fas fa-moon"></i>
                     </button>
-                    <a href="/login" class="btn-login">Login</a>
-                    <a href="/login" class="btn-signup">Sign Up</a>
+                    <div id="authButtons">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
                 </div>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <span></span>
@@ -390,5 +391,39 @@
     </footer>
 
     <script src="hub.js"></script>
+    <script>
+        // Authentication check and UI update
+        function checkAuth() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const currentUser = localStorage.getItem('currentUser');
+            const authButtons = document.getElementById('authButtons');
+
+            if (isLoggedIn && currentUser) {
+                const user = JSON.parse(currentUser);
+                authButtons.innerHTML = `
+                    <span style="color: var(--text-primary); margin-right: 1rem;">
+                        <i class="fas fa-user"></i> ${user.name}
+                    </span>
+                    <button onclick="logout()" class="btn-login" style="background: var(--error); border-color: var(--error);">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                `;
+            } else {
+                authButtons.innerHTML = `
+                    <a href="login.html" class="btn-login">Login</a>
+                    <a href="login.html" class="btn-signup">Sign Up</a>
+                `;
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            localStorage.removeItem('isLoggedIn');
+            window.location.reload();
+        }
+
+        // Check auth on page load
+        checkAuth();
+    </script>
 </body>
 </html>

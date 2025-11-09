@@ -27,8 +27,10 @@
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                         <i class="fas fa-moon"></i>
                     </button>
-                    <a href="/login" class="btn-login">Login</a>
-                    <a href="/login" class="btn-signup">Sign Up</a>
+                    <div id="authButtons">
+                        <a href="login.html" class="btn-login">Login</a>
+                        <a href="login.html" class="btn-signup">Sign Up</a>
+                    </div>
                 </div>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <span></span>
@@ -61,27 +63,49 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
+            <!-- Animated Background -->
+            <div class="geometric-bg">
+                <div class="geo-shape circle design-theme"></div>
+                <div class="geo-shape square design-theme"></div>
+                <div class="geo-shape circle design-theme"></div>
+                <div class="geo-shape square design-theme delay-1"></div>
+                <div class="geo-shape circle design-theme delay-2"></div>
+                <div class="geo-shape square small design-theme"></div>
+                <div class="geo-shape circle small design-theme delay-1"></div>
+                <div class="geo-shape square small design-theme delay-2"></div>
+            </div>
+            
             <div class="hero-content">
+                <div class="hero-profile-container">
+                    <div class="hero-profile-picture" data-profile="wezeso">
+                        <img src="" alt="Wezeso" class="hero-profile-img">
+                        <div class="profile-initials">W</div>
+                    </div>
+                </div>
+                <div class="hero-badge">🎨 Graphic Designer</div>
                 <h1 class="hero-title">
-                    Hi, I'm <span class="highlight">Wezeso</span>
+                    Hi, this is <span class="highlight gradient-text">Wezeso</span>
                 </h1>
                 <p class="hero-subtitle">UI/UX & Branding Designer</p>
                 <p class="hero-description">
-                    I create meaningful digital experiences and memorable brand identities 
-                    that help businesses stand out and connect with their audience.
+                    IDK what to write here, just enjoy my work. Follow me on Instagram and Telegram.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#portfolio" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    <a href="#portfolio" class="btn btn-primary">
+                        <i class="fas fa-briefcase"></i> View My Work
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
                 </div>
                 <div class="social-links">
-                    <a href="https://t.me/wezeso" target="_blank" aria-label="Telegram">
+                    <a href="https://t.me/wezeso" target="_blank" aria-label="Telegram" class="social-icon">
                         <i class="fab fa-telegram"></i>
                     </a>
-                    <a href="https://instagram.com/wezeso" target="_blank" aria-label="Instagram">
+                    <a href="https://instagram.com/wezeso" target="_blank" aria-label="Instagram" class="social-icon">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://github.com/wezeso" target="_blank" aria-label="GitHub">
+                    <a href="https://github.com/wezeso" target="_blank" aria-label="GitHub" class="social-icon">
                         <i class="fab fa-github"></i>
                     </a>
                 </div>
@@ -130,7 +154,19 @@
         <div class="container">
             <h2 class="section-title">Featured Work</h2>
             <p class="section-subtitle">A selection of my recent projects</p>
-            <div class="portfolio-grid">
+            
+            <!-- Search and Filter -->
+            <div class="portfolio-controls">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="projectSearch" placeholder="Search projects by title, category, or tags...">
+                </div>
+                <div class="filter-buttons" id="categoryFilters">
+                    <button class="filter-btn active" data-category="all">All</button>
+                </div>
+            </div>
+            
+            <div class="portfolio-grid" id="portfolioGrid">
                 <!-- Portfolio Item 1 -->
                 <div class="portfolio-item" data-id="1">
                     <div class="portfolio-image">
@@ -437,6 +473,118 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="portfolio-lookup.js"></script>
+    <script src="hub.js"></script>
+    <script>
+        // Authentication check
+        function checkAuth() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const currentUser = localStorage.getItem('currentUser');
+            const authButtons = document.getElementById('authButtons');
+
+            if (isLoggedIn && currentUser) {
+                const user = JSON.parse(currentUser);
+                authButtons.innerHTML = `
+                    <span style="color: var(--text-primary); margin-right: 1rem;">
+                        <i class="fas fa-user"></i> ${user.name}
+                    </span>
+                    <button onclick="logout()" class="btn-login" style="background: var(--error); border-color: var(--error);">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                `;
+            } else {
+                authButtons.innerHTML = `
+                    <a href="login.html" class="btn-login">Login</a>
+                    <a href="login.html" class="btn-signup">Sign Up</a>
+                `;
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            localStorage.removeItem('isLoggedIn');
+            window.location.reload();
+        }
+
+        checkAuth();
+        
+        // Initialize portfolio search and filter
+        function initPortfolioControls() {
+            const searchInput = document.getElementById('projectSearch');
+            const categoryFilters = document.getElementById('categoryFilters');
+            const portfolioGrid = document.getElementById('portfolioGrid');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            if (!searchInput || !categoryFilters || !portfolioGrid) return;
+            
+            // Get categories and create filter buttons
+            const categories = window.portfolioLookup?.getCategories() || [];
+            categories.forEach(category => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                btn.textContent = category;
+                btn.setAttribute('data-category', category);
+                categoryFilters.appendChild(btn);
+            });
+            
+            // Filter functionality
+            function filterProjects() {
+                const activeFilter = categoryFilters.querySelector('.filter-btn.active')?.getAttribute('data-category') || 'all';
+                const searchQuery = searchInput.value.toLowerCase();
+                
+                portfolioItems.forEach(item => {
+                    const projectId = item.getAttribute('data-id');
+                    const project = window.portfolioLookup?.getProjectById(projectId);
+                    
+                    if (!project) {
+                        item.style.display = 'none';
+                        return;
+                    }
+                    
+                    // Check category filter
+                    const matchesCategory = activeFilter === 'all' || project.category === activeFilter;
+                    
+                    // Check search query
+                    const matchesSearch = !searchQuery || 
+                        project.title.toLowerCase().includes(searchQuery) ||
+                        project.category.toLowerCase().includes(searchQuery) ||
+                        project.tags.some(tag => tag.toLowerCase().includes(searchQuery)) ||
+                        project.technologies.some(tech => tech.toLowerCase().includes(searchQuery));
+                    
+                    if (matchesCategory && matchesSearch) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            }
+            
+            // Search input event
+            searchInput.addEventListener('input', filterProjects);
+            
+            // Category filter events
+            categoryFilters.addEventListener('click', (e) => {
+                if (e.target.classList.contains('filter-btn')) {
+                    categoryFilters.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    e.target.classList.add('active');
+                    filterProjects();
+                }
+            });
+        }
+        
+        // Initialize after portfolio lookup is loaded
+        setTimeout(initPortfolioControls, 100);
+    </script>
 </body>
 </html>
 
